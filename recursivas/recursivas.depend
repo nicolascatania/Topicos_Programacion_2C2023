@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1694298314 source:c:\users\usuario\downloads\college\topicos de programacion i\recursivas\recursivas.c
+	"recursivas.h"
+
+1694297705 c:\users\usuario\downloads\college\topicos de programacion i\recursivas\recursivas.h
+	<stdio.h>
+	<stdlib.h>
+
+1694297342 source:c:\users\usuario\downloads\college\topicos de programacion i\recursivas\main.c
+	"recursivas.h"
+
