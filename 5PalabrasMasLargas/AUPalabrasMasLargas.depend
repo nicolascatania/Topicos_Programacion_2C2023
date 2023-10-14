@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1689883057 source:d:\git\programacion\exams\aupalabrasmaslargas\examen\examen.c
+	<stdio.h>
+	"examen.h"
+
+1689882858 d:\git\programacion\exams\aupalabrasmaslargas\examen\examen.h
+
+1689883096 source:d:\git\programacion\exams\aupalabrasmaslargas\examen\main.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+
+1695389219 source:d:\git\programacion\exams\aucortofrasesmaslargassinarchivos\examen\main.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+	<string.h>
+
+1695389169 d:\git\programacion\exams\aucortofrasesmaslargassinarchivos\examen\examen.h
+
+1695389282 source:d:\git\programacion\exams\aucortofrasesmaslargassinarchivos\examen\examen.c
+	<stdio.h>
+	"examen.h"
+
+1695389282 source:d:\temporal\examen\examen.c
+	<stdio.h>
+	"examen.h"
+
+1695669682 d:\temporal\examen\examen.h
+
+1695669684 source:d:\temporal\examen\main.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+	<string.h>
+
+1695755246 source:c:\users\laboratorios\desktop\examen\examen.c
+	<stdio.h>
+	"examen.h"
+
+1695750774 c:\users\laboratorios\desktop\examen\examen.h
+	<string.h>
+
+1695751402 source:c:\users\laboratorios\desktop\examen\main.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+	<string.h>
+
+1695773558 source:c:\users\usuario\downloads\college\topicos de programacion i\examen\main.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+	<string.h>
+
+1696011756 c:\users\usuario\downloads\college\topicos de programacion i\examen\examen.h
+	<string.h>
+
+1696012544 source:c:\users\usuario\downloads\college\topicos de programacion i\examen\examen.c
+	<stdio.h>
+	"examen.h"
+
+1696871334 source:c:\users\usuario\downloads\college\topicos de programacion i\5palabrasmaslargas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"examen.h"
+	<string.h>
+
+1696877191 c:\users\usuario\downloads\college\topicos de programacion i\5palabrasmaslargas\examen.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1696877280 source:c:\users\usuario\downloads\college\topicos de programacion i\5palabrasmaslargas\examen.c
+	<stdio.h>
+	"examen.h"
+
