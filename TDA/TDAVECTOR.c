@@ -74,16 +74,24 @@ int agregarMemoriaTDA(TDAVector* tdav) {
 }
 
 
-int quitarElementoEnTDA(TDAVector* tdav,size_t pos,void* buffer)
+int quitarElementoEnTDA(TDAVector* tdav, size_t pos, void* buffer)
 {
-    TDAVector temp;
-    temp.vec= tdav->vec;
+    TDAVector temp = *tdav;
 
-    temp.vec+= sizeof(tNodo)*pos;
-    memcpy(buffer,temp.vec,temp.vec->tamElem);
-    free(temp.vec);
+    if (pos >= temp.ce) {
+        return -1;
+    }
 
-    //completar
+    memcpy(buffer, temp.vec[pos].elem, temp.vec[pos].tamElem);
+
+
+    for (size_t i = pos; i < temp.ce - 1; i++) {
+        temp.vec[i] = temp.vec[i + 1];
+    }
+
+    temp.ce--;
+
+    *tdav = temp;
 
     return 0;
 }
