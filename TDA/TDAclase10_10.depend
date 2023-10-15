@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1696970071 source:c:\users\laboratorios\documents\tdaclase10_10\tdavector.c
+	"TDAVECTOR.h"
+
+1696969457 c:\users\laboratorios\documents\tdaclase10_10\tdavector.h
+	<stdio.h>
+	<stdlib.h>
+
+1696969980 source:c:\users\laboratorios\documents\tdaclase10_10\main.c
+	"TDAVECTOR.h"
+
+1697400913 source:c:\users\usuario\downloads\college\topicos de programacion i\tdaclase10_10\main.c
+	"TDAVECTOR.h"
+
+1697401044 c:\users\usuario\downloads\college\topicos de programacion i\tdaclase10_10\tdavector.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1697400950 source:c:\users\usuario\downloads\college\topicos de programacion i\tdaclase10_10\tdavector.c
+	"TDAVECTOR.h"
+
