@@ -15,7 +15,7 @@ int main()
     insertarEnTDA(&vector,cad,sizeof(cad));
 
 
-
+    //es solo para probar que los elementos se hayan insertado bien, entiendo que acceder a los elementos de esta manera es una mala práctica.
     e= (int*)vector.vec[0].elem;
     printf("%d ",*e);
     e= (int*)vector.vec[1].elem;
