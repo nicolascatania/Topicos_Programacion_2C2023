@@ -22,16 +22,14 @@ int main()
     printf("%d ",*e);
     printf("%s",vector.vec[2].elem);
 
+    int elem;
+    quitarElementoEnTDA(&vector,0,(void*)&elem);
 
 
-
-
-
-    /*int elem;
-    quitarElementoEnTDA(&vector,1,(void*)elem);
-
-    printf("%d",elem);*/
-
+    printf("\n%d\n",elem);
+    e= (int*)vector.vec[0].elem;
+    printf("%d ",*e);
+    printf("%s",vector.vec[1].elem);
 
     destruirTDAVector(&vector);
 
