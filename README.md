@@ -7,3 +7,8 @@ The most important directory is TopicosUtils, there you will find the most usefu
 
 En este repositorio, subí gran parte del código de C que desarrollé en la materia que lleva el nombre del título del repositorio.
 Trabajando con tipos genéricos, funciones genéricas, memoria dinámica, punteros, punteros a función, Tipo de dato abstracto (algo como POO) y algunos ejercicios que resolví dados por el profesor o la guía de ejercicios, etc.
+
+
+#TOPICOS UTILS
+proyect has one problem, it is on the function to go through all the elements of a generic matrix, i still can not manage to solve it.
+El proyecto tiene un problema, la funcion para recorrer una matriz generica no funciona aún, estoy tratando d encontrar una solución.
