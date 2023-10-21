@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1697926373 source:c:\users\usuario\downloads\college\topicos de programacion i\ejercicio5.13\main.c
+	"alumnos.h"
+
+1697736626 c:\users\usuario\downloads\college\topicos de programacion i\ejercicio5.13\alumnos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1697926324 source:c:\users\usuario\downloads\college\topicos de programacion i\ejercicio5.13\alumnos.c
+	"alumnos.h"
+

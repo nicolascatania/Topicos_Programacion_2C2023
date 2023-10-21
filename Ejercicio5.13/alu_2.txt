@@ -1,0 +1,4 @@
+legajo|dni|promedio|genero|edad
+1001|10|6.6|M|18
+1002|20|10|F|19
+1003|30|8|X|18
