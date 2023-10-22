@@ -34,10 +34,7 @@ void setearResultado(tInicial* vec, int elementos);
 
 //variante 3
 void mostrarFrasesConPalabrasCoincidentes();
-char** obtenerCoincidencias(char mat[][MAXLENGHT],const int ce);
-
-int obtenerPalabra(char* frase, char* palabra, int* caracteresLeidos);
-int buscarPalabra(const char *cadena, const char *palabra);
-void destruirMatriz(void **matriz, int filas);
-void **crearMatrizGenerica(int filas, int columnas, size_t tamanoElemento);
+void obtenerCoincidencias(char matResultado[FRASESMAX][MAXLENGHT], char frases[FRASESMAX][MAXLENGHT], int cantidadFrases);
+int obtenerPalabra(char* frase, char* palabra, int car);
+void insertarFrasesCoincidentes(char mat[FRASESMAX][MAXLENGHT],char* frase, char* fraseCoincidente, int cantidadFrases);
 #endif // EXAMEN_H_INCLUDED
