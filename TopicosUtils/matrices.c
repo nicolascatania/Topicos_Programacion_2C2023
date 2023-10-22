@@ -32,14 +32,15 @@ int** multiplicarMatricesEnteras(int* mat1, int* mat2, int cf1, int cc1, int cf2
 
 
 
-void recorrerMatriz(void* matriz, int filas, int columnas, size_t tam, void (*accion)(const void* elem, const int columnas, const int col)) {
-   int i,j;
+void recorrerMatriz(void** matriz, int filas, int columnas, size_t tam, void (*accion)(const void* elem, const int columnas, const int col)) {
+    int i, j;
     for (i = 0; i < filas; i++) {
         for (j = 0; j < columnas; j++) {
-            accion((char*)matriz + (i * columnas + j) * tam, columnas,j);
+            accion(matriz[i] + j, columnas, j);
         }
     }
 }
+
 
 
 
