@@ -4,8 +4,11 @@
 
 
 //funciones de tipo
+void mostrarEntero(const void*a){
+    printf("%d ", *((int*)a));
 
-void mostrarEntero(const void*a, const int columnas, const int col)
+}
+void mostrarEnteroMatriz(const void*a, const int columnas, const int col)
 {
     printf("%d ",*((int*)a));
     if(col==columnas-1)
