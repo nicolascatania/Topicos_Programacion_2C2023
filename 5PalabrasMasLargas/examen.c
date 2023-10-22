@@ -174,139 +174,179 @@ void insertarOrdenado2(char mat[][MAXLENGHT], char* frase, int fil, int* ce)
 
 void mostrarFrasesConPalabrasCoincidentes()
 {
-    int i=0;
+    int i = 0,j;
     char fraseLeida[MAXLENGHT];
-    char frases[30][MAXLENGHT];
-    char** matResultado;
+    char frases[FRASESMAX][MAXLENGHT];
+    char matResultado[FRASESMAX][MAXLENGHT];
 
-
-    while(obtenerFrase(fraseLeida) && i<30)
+    for (j = 0; j < FRASESMAX; j++)
     {
-        insertarOrdenado2(frases,fraseLeida,30,&i);
+        matResultado[j][0] = '\0';
     }
 
-
-    matResultado=obtenerCoincidencias(frases,i);
-
-
-    for(int j=0; j<i; j++)
+    while (obtenerFrase(fraseLeida) && i < FRASESMAX)
     {
-        printf("%s\n",matResultado[j]);
+        insertarOrdenado2(frases, fraseLeida, FRASESMAX, &i);
     }
-    destruirMatriz((void**)matResultado,i);
+
+    obtenerCoincidencias(matResultado, frases, i);
+
+    for ( j = 0; j < i; j++)
+    {
+        printf("%s\n", matResultado[j]);
+    }
 }
 
-char** obtenerCoincidencias(char mat[][MAXLENGHT],const int ce)
-{
-    int  frasesAnalizadas=0, cantLetras,frasesCoincidentes=0,longitudLeida, cantCaracteres;
-    char* palabra= malloc(MAXLENGHT*sizeof(char));
-    char** matResultado= (char**)crearMatrizGenerica(ce,MAXLENGHT,sizeof(char));
 
-    *(palabra)='\0';
-    while(frasesAnalizadas<ce)
+
+void obtenerCoincidencias(char matResultado[FRASESMAX][MAXLENGHT], char frases[FRASESMAX][MAXLENGHT], int cantidadFrases)
+{
+
+    int i,j, caracteresLeidos=0;
+    char palabra[MAXLENGHT];
+    for(i=0; i<cantidadFrases; i++)
     {
-        cantCaracteres=0;
-        cantLetras=0;
-        longitudLeida= strlen(mat[frasesAnalizadas]);
-        while(longitudLeida>0)
+        caracteresLeidos=obtenerPalabra(frases[i],palabra, caracteresLeidos);
+        while(caracteresLeidos>0)
         {
-            cantLetras=obtenerPalabra(mat[frasesAnalizadas][cantCaracteres],palabra, &cantCaracteres);
-            if(buscarPalabra(mat[frasesAnalizadas+1],palabra)!=-1)
+            for(j=i+1; j<cantidadFrases; j++)
             {
-                strcpy(matResultado[frasesCoincidentes],mat[frasesAnalizadas]);
-                frasesCoincidentes++;
+                if(buscarPalabra(frases[j],palabra))
+                {
+                    insertarFrasesCoincidentes(matResultado,frases[i], frases[j], cantidadFrases);
+                }
             }
-            longitudLeida-=cantCaracteres;
-
+            caracteresLeidos=obtenerPalabra(frases[i],palabra, caracteresLeidos);
         }
-        frasesAnalizadas++;
 
     }
-
-    free(palabra);
-    return matResultado;
 
 }
 
-int obtenerPalabra(char* frase, char* palabra, int* caracteresLeidos)
+int buscarPalabra(char* string, char* substring)
 {
-    char* lectura= frase;
-    int i = 0, cantLetras = 0;
-    while (!ESLETRA(*lectura))
+    char palabra[MAXLENGHT]="\0";
+    char* pal=palabra;
+    char* ps= string;
+    char* psub=substring;
+    int largoSub= strlen(substring);
+    int largoPal;
+    int coincidencias;
+    while(*ps)
     {
-        lectura++;
-        (*caracteresLeidos)++;
-    }
-
-    while (ESLETRA(*lectura))
-    {
-        palabra[cantLetras] = *lectura; // Asignar el carácter directamente
-        cantLetras++;
-        lectura++;
-         (*caracteresLeidos)++;
-    }
-
-    palabra[cantLetras] = '\0'; // Añadir el terminador nulo al final de la palabra
-
-    return cantLetras;
-}
-
-int buscarPalabra(const char *cadena, const char *palabra)
-{
-    // Obtener la longitud de la cadena y la palabra
-    int longitudCadena = strlen(cadena);
-    int longitudPalabra = strlen(palabra);
-
-    // Recorrer la cadena
-    for (int i = 0; i <= longitudCadena - longitudPalabra; i++)
-    {
-        // Comprobar si la subcadena de la cadena coincide con la palabra
-        if (strncmp(cadena + i, palabra, longitudPalabra) == 0)
+        while(!ESLETRA(*ps))
         {
-            return i; // Devolver la posición de la palabra encontrada
+            ps++;
         }
-    }
-
-    return -1; // La palabra no se encontró en la cadena
-}
-
-void destruirMatriz(void **matriz, int filas)
-{
-    if (matriz == NULL)
-    {
-        return; // No hacer nada si la matriz ya es NULL
-    }
-
-    for (int i = 0; i < filas; i++)
-    {
-        free(matriz[i]); // Liberar la memoria de cada fila de la matriz
-    }
-
-    free(matriz); // Liberar la memoria de la matriz principal
-}
-
-void **crearMatrizGenerica(int filas, int columnas, size_t tamanoElemento)
-{
-    void **matriz = (void **)malloc(filas * sizeof(void *));
-    if (matriz == NULL)
-    {
-        return NULL; // Fallo en la asignación de memoria
-    }
-
-    for (int i = 0; i < filas; i++)
-    {
-        matriz[i] = malloc(columnas * tamanoElemento);
-        if (matriz[i] == NULL)
+        while(ESLETRA(*ps))
         {
-            // Si no se puede asignar memoria para una fila, liberamos la memoria previamente asignada
-            for (int j = 0; j < i; j++)
+            *pal= *ps;
+            pal++;
+            ps++;
+        }
+        pal=palabra;
+        largoPal= strlen(palabra);
+        coincidencias=0;
+        while(*pal)
+        {
+    //podria usar strcmp
+            if(*pal==*psub)
             {
-                free(matriz[j]);
+                pal++;
+                psub++;
+                coincidencias++;
             }
-            free(matriz);
-            return NULL; // Fallo en la asignación de memoria
+            else
+            {
+                memset(palabra, 0, sizeof(palabra));
+                pal=palabra;
+                psub= substring;
+            }
         }
+
+        if(coincidencias==largoSub && strlen(palabra)==strlen(substring) )
+        {
+            return 1;
+        }
+
+
+    }
+    return 0;
+}
+
+int obtenerPalabra(char* frase, char* palabra, int car)
+{
+    int cantCar=car;
+    char* pf= frase+ cantCar;
+    char* pc=palabra;
+
+    if(!*pf)
+    {
+        return 0;
     }
 
-    return matriz;
+    while(!ESLETRA(*pf))
+    {
+        pf++;
+        cantCar++;
+    }
+
+    while(ESLETRA(*pf))
+    {
+        cantCar++;
+        *pc = *pf;
+        pf++;
+        pc++;
+    }
+    *pc = '\0';
+
+    if(!*pf)
+    {
+        return 0;
+    }
+
+    return cantCar;
+}
+
+void insertarFrasesCoincidentes(char mat[FRASESMAX][MAXLENGHT],char* frase, char* fraseCoincidente, int cantidadFrases)
+{
+    int i, j, repetida=0, repetidaCoincidente=0;
+    if(mat[0][0]=='\0')
+    {
+        strcpy(mat[0],frase);
+        strcpy(mat[1],fraseCoincidente);
+    }
+    else
+    {
+        for(i=0; i<cantidadFrases; i++)
+        {
+            if(strcmpi(mat[i],frase)==0)
+            {
+                repetida=1;
+            }
+            if(strcmpi(mat[i],fraseCoincidente)==0)
+            {
+                repetidaCoincidente=1;
+            }
+        }
+
+        if(!repetida)
+        {
+            j=0;
+            while(mat[j][0]!='\0')
+            {
+                j++;
+            }
+            strcpy(mat[j],frase);
+        }
+        if(!repetidaCoincidente)
+        {
+            j=0;
+            while(mat[j][0]!='\0')
+            {
+                j++;
+            }
+            strcpy(mat[j],fraseCoincidente);
+        }
+    }
 }
