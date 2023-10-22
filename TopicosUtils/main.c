@@ -18,7 +18,7 @@ int main() {
 
 
 
-    recorrerMatriz(matR, 3, 3,sizeof(int), mostrarEntero);
+    recorrerMatriz(matR, 3, 3,sizeof(int), mostrarEnteroMatriz);
 
     //recorrerMatriz(matR,cf,cf,sizeof(int),mostrarEntero);
 
