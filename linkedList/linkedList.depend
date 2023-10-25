@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1697846590 source:c:\users\usuario\downloads\college\topicos de programacion i\linkedlist\lkdlist.c
+	"lkdlist.h"
+	<stdlib.h>
+
+1697839665 c:\users\usuario\downloads\college\topicos de programacion i\linkedlist\lkdlist.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1697846234 source:c:\users\usuario\downloads\college\topicos de programacion i\linkedlist\main.c
+	"lkdlist.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1698274864 source:c:\users\usuario\desktop\college\topicos de programacion i\linkedlist\lkdlist.c
+	"lkdlist.h"
+	<stdlib.h>
+
+1698274713 c:\users\usuario\desktop\college\topicos de programacion i\linkedlist\lkdlist.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1698274732 source:c:\users\usuario\desktop\college\topicos de programacion i\linkedlist\main.c
+	"lkdlist.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
